@@ -16,7 +16,7 @@ docker build -f Dockerfile.alpine -t lunch:v7-alpine .
 
 build alpine image from git:
 ```
-build -t lunch:v7-alpine https://github.com/lalyos/docker-kpmg.git#master
+docker build -t lunch:v7-alpine https://github.com/lalyos/docker-kpmg.git#master
 ```
 
 start anim gif cat version:
