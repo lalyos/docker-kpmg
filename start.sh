@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cat > /var/www/html/index.html <<EOF
+echo $CERT | base64 -d > /var/x.pem
+
+cat > ${HTML_DIR:-/var/www/html}/index.html <<EOF
 <html lang="en">
 <head>
     <meta charset="UTF-8">
