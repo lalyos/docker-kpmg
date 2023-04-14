@@ -1,5 +1,20 @@
 version: '3.3'
 services:
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+  lunch:
+    image: lunch:v7
+    ports:
+    - 80
+    environment:
+      - VIRTUAL_HOST=lunch.lvh.me
+      - TITLE=friday lunchtime 12:00
+      - COLOR=khaki
+      - BODY=<iframe src="https://giphy.com/embed/pVBwnPDeIpd3wToeQ2" width="480" height="333" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/garfield-cat-food-pVBwnPDeIpd3wToeQ2">via GIPHY</a></p>
   mydb:
     volumes:
     - vipdb:/var/lib/postgresql/data
@@ -15,5 +30,3 @@ services:
 
 volumes:
   vipdb:
-
-# docker compose up -d
