@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  mydb:
+    volumes:
+    - vipdb:/var/lib/postgresql/data
+    - ./sql:/docker-entrypoint-initdb.d
+    environment:
+    - POSTGRES_PASSWORD=secret
+    image: postgres
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080
+
+volumes:
+  vipdb:
+
+# docker compose up -d
